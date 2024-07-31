@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
+import DivsionPage from "./components/DivsionPage.jsx";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<></>} />
+          <Route path="/:division" element={<DivsionPage />} />
         </Routes>
       </Router>
     </>
