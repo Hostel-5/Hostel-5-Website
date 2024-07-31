@@ -16,20 +16,18 @@ export default function DivsionPage() {
     },
   });
 
-  const markdown = "# Hi, *Pluto*!";
-
   return (
     <div className="max-w-screen-lg m-auto flex flex-col gap-4 mt-4">
-      {sheet.map((data, key) => (
+      {sheet.map((data) => (
         <Link
-          to={"/"}
-          className="flex flex-col bg-slate-700 p-"
-          key={division + "-image-" + key}
+          to={`/${division}/${data.postID}`}
+          className="flex flex-col bg-slate-700"
+          key={division + "-image-" + data.postID}
         >
           <div className="aspect-w-4 aspect-h-3">
             <img
               src={data.image}
-              alt={`${division}-image-${key}`}
+              alt={`${division}-image-${data.postID}`}
               className="object-cover"
             />
           </div>
