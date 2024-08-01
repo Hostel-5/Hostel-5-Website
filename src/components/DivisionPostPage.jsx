@@ -3,15 +3,32 @@ import { useParams } from "react-router-dom";
 import { getSheet } from "../api-clients";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { LoadingAnimation } from "./Loading";
 
 export default function DivisionPostPage() {
   const { division, postID } = useParams();
 
-  const { data: data = [] } = useQuery({
+  const {
+    data: data = [],
+    isLoading,
+    isLoadingError,
+  } = useQuery({
     queryFn: () => getSheet(division),
     queryKey: division + "-image-" + postID,
     select: (data) => data.find((data) => String(data.postID) == postID),
   });
+
+  if (isLoading) {
+    return <LoadingAnimation />;
+  }
+
+  if (isLoadingError) {
+    return (
+      <div className="text-white text-lg font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        Some Error Occured
+      </div>
+    );
+  }
 
   return (
     <div

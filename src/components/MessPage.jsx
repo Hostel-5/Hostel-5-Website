@@ -1,8 +1,13 @@
 import { useQuery } from "react-query";
 import { getMessSheet } from "../api-clients";
+import { LoadingAnimation } from "./Loading";
 
 export default function MessPage() {
-  const { data: data = {} } = useQuery({
+  const {
+    data: data = {},
+    isLoading,
+    isLoadingError,
+  } = useQuery({
     queryFn: () => getMessSheet(),
     queryKey: "mess-page",
     select: (data) => {
@@ -38,6 +43,18 @@ export default function MessPage() {
       console.log(Object.keys(data));
     },
   });
+
+  if (isLoading) {
+    return <LoadingAnimation />;
+  }
+
+  if (isLoadingError) {
+    return (
+      <div className="text-white text-lg font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        Some Error Occured
+      </div>
+    );
+  }
 
   return (
     <div className="prose prose-invert !max-w-none prose-headings:my-0 prose-hr:my-2 m-auto">

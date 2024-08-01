@@ -3,11 +3,16 @@ import { getSheet } from "../api-clients";
 import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { LoadingAnimation } from "./Loading";
 
 export default function DivsionPage() {
   const { division } = useParams();
 
-  const { data: sheet = [] } = useQuery({
+  const {
+    data: sheet = [],
+    isLoading,
+    isLoadingError,
+  } = useQuery({
     queryFn: () => getSheet(division),
     queryKey: division,
     onSuccess(data) {
@@ -15,6 +20,18 @@ export default function DivsionPage() {
       console.log(data);
     },
   });
+
+  if (isLoading) {
+    return <LoadingAnimation />;
+  }
+
+  if (isLoadingError) {
+    return (
+      <div className="text-white text-lg font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        Some Error Occured
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-screen-lg m-auto flex flex-col gap-4 mt-4">
