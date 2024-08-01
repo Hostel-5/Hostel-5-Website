@@ -32,23 +32,25 @@ export default function DivisionPostPage() {
 
   return (
     <div
-      className="flex flex-col bg-slate-700 my-3"
+      className="flex flex-col bg-slate-700 my-3 max-w-md md:max-w-screen-lg m-auto"
       key={division + "-image-" + data.postID}
     >
-      <div className="aspect-w-4 aspect-h-3">
-        <img
-          src={data.image}
-          alt={`${division}-image-${data.postID}`}
-          className="object-cover"
-        />
-      </div>
-      <div className="p-3">
-        <div className="text-2xl font-bold text-white">{data.heading}</div>
-        <ReactMarkdown
-          children={data.description}
-          className={"prose prose-invert break-words"}
-          remarkPlugins={[remarkGfm]}
-        />
+      <div className="md:flex">
+        <div className="md:max-w-[50%] md:pl-2 md:pt-2 md:pb-2">
+          <img
+            src={data.image}
+            alt={`${division}-image-${data.postID}`}
+            className="object-cover w-full"
+          />
+        </div>
+        <div className="flex-1 p-3 md:max-w-[50%]">
+          <div className="text-2xl font-bold text-white">{data.heading}</div>
+          <ReactMarkdown
+            children={data.description}
+            className={"prose prose-invert break-words !max-w-none"}
+            remarkPlugins={[remarkGfm]}
+          />
+        </div>
       </div>
     </div>
   );

@@ -57,15 +57,19 @@ export default function MessPage() {
   }
 
   return (
-    <div className="prose prose-invert !max-w-none prose-headings:my-0 prose-hr:my-2 m-auto">
+    <div className="prose prose-invert !max-w-none prose-headings:my-0 prose-hr:my-2 m-auto sm:flex sm:flex-wrap sm:justify-center">
       {Object.keys(data).map((day) => (
-        <div key={day} className="my-3">
-          <h3 className="border w-fit px-3 py-1 rounded-lg mx-auto">{day}</h3>
+        <div key={day} className="my-3 sm:w-72 sm:max-w-sm">
+          <h3 className="border w-fit px-3 py-1 rounded-lg mx-auto sm:mb-1">
+            {day}
+          </h3>
           {Object.keys(data[day]).map((mealTime) => (
             <div key={mealTime}>
-              <h4 className="underline underline-offset-4 !mb-1">{mealTime}</h4>
+              <h4 className="underline underline-offset-4 !mb-1 text-center">
+                {mealTime}
+              </h4>
               {data[day][mealTime].map((meal, index) => (
-                <div className="ml-3 text-lg" key={index}>
+                <div className="ml-3 text-lg text-center" key={index}>
                   {meal}
                 </div>
               ))}

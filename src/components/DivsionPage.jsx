@@ -34,14 +34,14 @@ export default function DivsionPage() {
   }
 
   return (
-    <div className="max-w-screen-lg m-auto flex flex-col gap-4 mt-4">
+    <div className="max-w-screen-xl m-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center flex-wrap gap-4 mt-4">
       {sheet.map((data) => (
         <Link
           to={`/${division}/${data.postID}`}
-          className="flex flex-col bg-slate-700"
+          className="flex flex-col bg-slate-700 max-w-sm"
           key={division + "-image-" + data.postID}
         >
-          <div className="aspect-w-4 aspect-h-3">
+          <div className="aspect-w-4 aspect-h-3 aspect-square">
             <img
               src={data.image}
               alt={`${division}-image-${data.postID}`}
@@ -52,7 +52,9 @@ export default function DivsionPage() {
             <div className="text-2xl font-bold text-white">{data.heading}</div>
             <ReactMarkdown
               children={data.description}
-              className={"prose prose-invert break-words overflow-y-clip"}
+              className={
+                "prose prose-invert !max-h-none break-words overflow-y-clip"
+              }
               remarkPlugins={[remarkGfm]}
             />
           </div>
