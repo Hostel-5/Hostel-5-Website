@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar.jsx";
 import DivsionPage from "./components/DivsionPage.jsx";
 import DivisionPostPage from "./components/DivisionPostPage.jsx";
 import MessPage from "./components/MessPage.jsx";
+import Home from "./components/Home.jsx";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<></>} />
+          <Route path="/" element={<Home />} />
           <Route path="/mess" element={<MessPage />} />
           <Route path="/:division/" element={<DivsionPage />} />
           <Route path="/:division/:postID" element={<DivisionPostPage />} />

@@ -40,10 +40,16 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between w-full sm:w-auto">
             <span className="text-3xl font-bold tracking-tight">
-              <Link to="/" className="flex h-[25px] gap-1">
-                Hostel 5
-                {/* <img src="/logo.png" alt="logo" className="scale-150" />
-                <img src="/text_logo.png" alt="textLogo" /> */}
+              <Link to="/" className="flex h-[40px] gap-4 sm:gap-6 relative">
+                {/* Hostel 5 */}
+                <img
+                  src="/hostel5logo.png"
+                  alt="logo"
+                  className="scale-150 sm:scale-[2] sm:ml-4"
+                />
+                <div className="relative top-[3px] text-slate-800">
+                  Hostel 5
+                </div>
               </Link>
             </span>
             <div
