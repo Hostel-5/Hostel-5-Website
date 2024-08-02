@@ -65,11 +65,11 @@ export default function MessPage() {
           </h3>
           {Object.keys(data[day]).map((mealTime) => (
             <div key={mealTime}>
-              <h4 className="underline underline-offset-4 !mb-1 text-center">
+              <h4 className="underline underline-offset-4 !mb-1 sm:text-center">
                 {mealTime}
               </h4>
               {data[day][mealTime].map((meal, index) => (
-                <div className="ml-3 text-lg text-center" key={index}>
+                <div className="ml-3 text-lg sm:text-center" key={index}>
                   {meal}
                 </div>
               ))}
