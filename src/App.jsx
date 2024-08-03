@@ -4,6 +4,7 @@ import DivsionPage from "./components/DivsionPage.jsx";
 import DivisionPostPage from "./components/DivisionPostPage.jsx";
 import MessPage from "./components/MessPage.jsx";
 import Home from "./components/Home.jsx";
+import CouncilPage from "./components/CouncilPage.jsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/mess" element={<MessPage />} />
+          <Route path="/council" element={<CouncilPage />} />
           <Route path="/:division/" element={<DivsionPage />} />
           <Route path="/:division/:postID" element={<DivisionPostPage />} />
         </Routes>
