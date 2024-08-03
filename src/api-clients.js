@@ -42,7 +42,7 @@ export const getMessSheet = async () => {
 
 export const getCouncilSheet = async () => {
   let response = await fetch(
-    "https://docs.google.com/spreadsheets/d/135ptqes_OVA7lMmHE_CFhx-nUYkrPibVtlqj4VbLkgw/export?format=xlsx"
+    "https://docs.google.com/spreadsheets/d/1LPbVSy4u4aEB7MwSzMgo08Q0zGHseZtHJtTEv2mW3IU/export?format=xlsx"
   );
 
   if (!response.ok) {
