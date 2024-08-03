@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const typingHeadArray = ["Hostel 5", "PentHouse", "Insti Ka Baap"];
@@ -45,7 +46,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 select-none">
       {/* landing page */}
       <div className="flex flex-col gap-3 sm:flex-row sm:h-[80vh] items-center sm:max-w-screen-lg sm:m-auto">
         <div className="m-auto flex-1">
@@ -61,7 +62,7 @@ export default function Home() {
             <span className="border-2 ml-2"></span>
           </div>
           <div className="text-lg text-center">
-            Welcome to the beating heart of student life at IIT Bombay — where
+            Welcome to the beating heart of student life at IIT Bombay where
             camaraderie meets academic excellence, and every corridor echoes
             with the spirit of innovation. Welcome to Hostel 5, your home away
             from home.
@@ -113,6 +114,41 @@ export default function Home() {
             meaningful contributions to society.
           </div>
         </div>
+      </div>
+      <hr className="border-2 border-gray-400" />
+      {/* division page */}
+      <div className="flex flex-col gap-4 my-10 text-white md:flex-row max-w-screen-lg m-auto">
+        {[
+          [
+            "Culturals",
+            "From vibrant cultural festivals to spirited talent nights, Hostel 5 is a melting pot of creativity, where diverse talents shine and traditions come alive.",
+            "/cult",
+          ],
+          [
+            "Technicals",
+            "At Hostel 5, innovation knows no bounds. From hackathons to technical symposiums, we're a hub of ideas where minds converge to shape the future.",
+            "/tech",
+          ],
+          [
+            "Sports",
+            "In the arena of sports, Hostel 5 reigns supreme. With state-of-the-art facilities and a passion for excellence, we celebrate teamwork, determination, and sporting prowess.",
+            "/sports",
+          ],
+        ].map((division) => (
+          <div
+            className="flex flex-col gap-2 mx-2 border-b border-t py-3 rounded-2xl"
+            key={division[0] + "home-section"}
+          >
+            <div className="m-auto text-3xl">{division[0]}</div>
+            <div className="text-lg text-center">{division[1]}</div>
+            <Link
+              to={division[2]}
+              className="relative m-auto border px-3 py-2 rounded-md before:content-[''] before:absolute before:-z-10 before:bg-slate-600 before:top-0 before:left-0 before:h-full before:w-full before:max-w-0 before:hover:max-w-full before:rounded-md before:transition-all"
+            >
+              Go to {division[0]} page
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );
