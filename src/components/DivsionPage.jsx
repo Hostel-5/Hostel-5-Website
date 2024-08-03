@@ -41,11 +41,11 @@ export default function DivsionPage() {
           className="flex flex-col sm:grid sm:grid-cols-3 sm:aspect-[3] sm:overflow-hidden bg-slate-700 max-w-full relative"
           key={division + "-image-" + data.postID}
         >
-          <div className="w-full aspect-w-4 aspect-h-3 aspect-square">
+          <div className="w-full aspect-w-4 aspect-h-3 aspect-square relative overflow-hidden">
             <img
               src={data.image}
               alt={`${division}-image-${data.postID}`}
-              className="object-cover"
+              className="object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
             />
           </div>
           <div className="col-span-2">

@@ -36,14 +36,14 @@ export default function DivisionPostPage() {
       key={division + "-image-" + data.postID}
     >
       <div className="md:flex">
-        <div className="md:max-w-[50%] md:pl-2 md:pt-2 md:pb-2">
+        <div className="md:max-w-[50%] w-full md:pl-2 md:pt-2 md:pb-2">
           <img
             src={data.image}
             alt={`${division}-image-${data.postID}`}
             className="object-cover w-full"
           />
         </div>
-        <div className="flex-1 p-3 md:max-w-[50%]">
+        <div className="flex-1 p-3 md:max-w-[50%] w-full">
           <div className="text-2xl font-bold text-white">{data.heading}</div>
           <ReactMarkdown
             children={data.description}
