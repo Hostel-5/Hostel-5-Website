@@ -45,7 +45,7 @@ export default function DivsionPage() {
             <img
               src={data.image}
               alt={`${division}-image-${data.postID}`}
-              className="object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-h-full min-w-full"
             />
           </div>
           <div className="col-span-2">
